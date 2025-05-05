@@ -1,1 +1,112 @@
+def main():
+    print('_]WELCOME TO DUNGEN MONSTERS[_')
+    print('1.play')
+    print('2.rules')
+    print('3.quit')
+    bing = input('select:')
+    if bing == '1':
+    #call the start
+        start()
+    elif bing == '2':
+        rules()
+    elif bing == '3':
+        print('ending...')
+    else:
+        print('not a option')
+        main()
 
+def rules():
+    print('you will be placed in a maze and you have to escape')
+    print('you will be given options to go north,south, west, or east')
+    print("you can't move anyother way")
+    print('you will have to find loot and fight monsters')
+    print('you can pick up items by typing pick up when prompted')
+    print('to fight back agenst a monster type sword well fighting to use the sword')
+    print('if your hp goes to 0 you lose')
+    print('but the most important thing is to have fun')
+  
+#classes: player, player_class, enermy, item, and 
+#make a map
+#add random chance to hit or damige amount
+#shows the health
+class player:
+    #constructor for hero class
+    #__ hides the thing from other classes
+    def __init__(self, name, health, weapion, player_class):
+        self.__name = name
+        self.__health = health
+        self.__maxhealth = health
+        self.__weapion = weapion
+        self.__player_class = player_class
+        
+    #####---getter meathods---#####
+    def get_name(self):
+        return self.__name
+    def get_health(self):
+        return self.__health
+    ###---setter meathods---###
+    def loss_health(self, less_health):
+        # this reduses the heros health
+        if less_health >= self.__health:
+            print('you died')
+            self.__health = 0
+        else:
+            self.__health = self.__health - less_health
+
+    def gain_health(self, gain_health):
+        self.__health = self.__health + gain_health
+        if self.__health > self.__maxhealth:
+            self.__health = self.__maxhealth
+            
+class enermy:
+    def __init__():
+        pass
+    def health(self):
+        pass
+    def attack(self):
+        pass
+
+class item:
+    def __init__():
+        pass
+    def description(self):
+        pass
+    def damige(self):
+        pass
+
+class player_class:
+    def __init__(self, name):
+        self.__name = name
+    def get_effect(self, name):
+        
+
+class map_locations:
+    def __init__():
+        pass
+
+def maps():
+    pass
+
+def item_bar():
+    pass
+
+def play():
+    name = input('enter the players name:')
+    weapion = input('enter the players weapion')
+    hp = 50
+    print('select your class')
+    print('1. runner: has a 50/50 chanes to run away in a fight')
+    print('2. fighter: all attacks have a 20% chance of doing double damige')
+    print('3. evader: has a 25% chanse not to get hit')
+    clas = input('select here:')
+    if clas == '1':
+        classs = 'runner'
+    elif clas == '2':
+        classs = 'fighter'
+    elif clas == '3':
+        classs = 'evader'
+    else:
+        print('not a option')
+        play()
+    hero = player(name, hp, weapion, classs)
+    hero_class = player_class(classs)
