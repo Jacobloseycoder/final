@@ -1,3 +1,4 @@
+import random
 def main():
     print('_]WELCOME TO DUNGEN MONSTERS[_')
     print('1.play')
@@ -59,12 +60,22 @@ class player:
             self.__health = self.__maxhealth
             
 class enermy:
-    def __init__():
-        pass
-    def health(self):
-        pass
+    def __init__(self, name, health, attack, max_health):
+        self.__name = name
+        self.__health = health
+        self.__max_health = max_health
+        self.__attack = attack
+    def health_check(self):
+        return self.__health
+    def health_loss(self, damige):
+        # this reduses the heros health
+        if less_health >= self.__health:
+            self.__health = 0
+        else:
+            self.__health = self.__health - damige
     def attack(self):
-        pass
+        less_health = random.randint(1,10)
+        return less_health
 
 class item:
     def __init__():
@@ -78,7 +89,7 @@ class player_class:
     def __init__(self, name):
         self.__name = name
     def get_effect(self, name):
-        
+        pass
 
 class map_locations:
     def __init__():
