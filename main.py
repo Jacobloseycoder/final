@@ -88,15 +88,72 @@ class item:
 class player_class:
     def __init__(self, name):
         self.__name = name
-    def get_effect(self, name):
-        pass
 
 class map_locations:
     def __init__():
         pass
+def map_gen():
+    if up_down = 1 and left_right = 1:
+        pass
+    elif up_down = 2 and left_right = 1:
+        pass
+    elif up_down = 3 and left_right = 1:
+        pass
+    elif up_down = 4 and left_right = 1:
+        pass
+    elif up_down = 5 and left_right = 1:
+        pass
+    elif up_down = 1 and left_right = 2:
+        pass
+    elif up_down = 2 and left_right = 2:
+        pass
+    elif up_down = 3 and left_right = 2:
+        pass
+    elif up_down = 4 and left_right = 2:
+        pass
+    elif up_down = 5 and left_right = 2:
+        pass
+    elif up_down = 1 and left_right = 3:
+        pass
+    elif up_down = 2 and left_right = 3:
+        pass
+    elif up_down = 3 and left_right = 3:
+        pass
+    elif up_down = 4 and left_right = 3:
+        pass
+    elif up_down = 5 and left_right = 3:
+        pass
+    elif up_down = 1 and left_right = 4:
+        pass
+    elif up_down = 2 and left_right = 4:
+        pass
+    elif up_down = 3 and left_right = 4:
+        pass
+    elif up_down = 4 and left_right = 4:
+        pass
+    elif up_down = 5 and left_right = 4:
+        pass
+    elif up_down = 1 and left_right = 5:
+        pass
+    elif up_down = 2 and left_right = 5:
+        pass
+    elif up_down = 3 and left_right = 5:
+        pass
+    elif up_down = 4 and left_right = 5:
+        pass
+    elif up_down = 5 and left_right = 5:
+        pass
 
-def maps():
-    pass
+def move():
+    move = input('north, east, south, west')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
 
 def item_bar():
     pass
@@ -121,3 +178,14 @@ def play():
         play()
     hero = player(name, hp, weapion, classs)
     hero_class = player_class(classs)
+    
+def effect_check():
+    if hero_class.player_class() == 'runner':
+        effect = 'run'
+    elif hero_class.player_class() == 'fighter':
+        effect = 'fight'
+    elif hero_class.player_class() == 'evader':
+        effect = 'evad'
+
+def battle():
+    pass
