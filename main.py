@@ -92,9 +92,18 @@ class player_class:
 class map_locations:
     def __init__():
         pass
+
 def map_gen():
     if up_down = 1 and left_right = 1:
-        pass
+        print('you see moss paches all around the room')
+        print('you noutise there is only two doors')
+        print('1. north')
+        print('2. east')
+        move = input('choose:')
+        if move == 'north':
+            up_down = up_down + 1
+        elif move == 'east':
+            left_right = left_right + 1
     elif up_down = 2 and left_right = 1:
         pass
     elif up_down = 3 and left_right = 1:
