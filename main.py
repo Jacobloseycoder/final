@@ -92,9 +92,18 @@ class player_class:
 class map_locations:
     def __init__():
         pass
-
+    
+#    MAP LAYOUT
+#   __ __ __ __ __
+#5 |__|__|__|__|__|
+#4 |__|__|__|__|__|
+#3 |__|__|__|__|__|
+#2 |__|__|__|__|__|
+#1 |__|__|__|__|__|
+#    1  2  3  4  5
 def map_gen():
-    if up_down = 1 and left_right = 1:
+    #(1,1)
+    if up_down == 1 and left_right == 1:
         print('you see moss paches all around the room')
         print('you noutise there is only two doors')
         print('1. north')
@@ -104,57 +113,213 @@ def map_gen():
             up_down = up_down + 1
         elif move == 'east':
             left_right = left_right + 1
-    elif up_down = 2 and left_right = 1:
-        pass
-    elif up_down = 3 and left_right = 1:
-        pass
-    elif up_down = 4 and left_right = 1:
-        pass
-    elif up_down = 5 and left_right = 1:
-        pass
+    #(1,2)
+    elif up_down == 2 and left_right == 1:
+        print('north')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'north':
+            up_down = up_down + 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'south':
+            up_down = up_down - 1
+    #(1,3)
+    elif up_down == 3 and left_right == 1:
+        print('north')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'north':
+            up_down = up_down + 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'south':
+            up_down = up_down - 1
+    #(1,4)
+    elif up_down == 4 and left_right == 1:
+        print('north')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'north':
+            up_down = up_down + 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'south':
+            up_down = up_down - 1
+    #(1,5)
+    elif up_down == 5 and left_right == 1:
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'south':
+            up_down = up_down - 1
+        elif move == 'east':
+            left_right = left_right + 1
+    #(2,1)
     elif up_down = 1 and left_right = 2:
-        pass
+        print('east')
+        print('north')
+        print('west')
+        move = input('choose:')
+        if move == 'south':
+            up_down = up_down - 1
+        elif move == 'north':
+            up_down = up_down + 1
+        elif move == 'west':
+            left_right = left_right - 1
+    #(2,2)
     elif up_down = 2 and left_right = 2:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(2,3)
     elif up_down = 3 and left_right = 2:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(2,4)
     elif up_down = 4 and left_right = 2:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(2,5)
     elif up_down = 5 and left_right = 2:
-        pass
+        print('east')
+        print('south')
+        print('west')
+        move = input('choose:')
+        if move == 'south':
+            up_down = up_down - 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'west':
+            left_right = left_right - 1
+    #(3,1)
     elif up_down = 1 and left_right = 3:
-        pass
+        print('east')
+        print('north')
+        print('west')
+        move = input('choose:')
+        if move == 'south':
+            up_down = up_down - 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'west':
+            left_right = left_right - 1
+    #(3,2)
     elif up_down = 2 and left_right = 3:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(3,3)
     elif up_down = 3 and left_right = 3:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(3,4)
     elif up_down = 4 and left_right = 3:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(3,5)
     elif up_down = 5 and left_right = 3:
         pass
+    #(4,1)
     elif up_down = 1 and left_right = 4:
         pass
+    #(4,2)
     elif up_down = 2 and left_right = 4:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(4,3)
     elif up_down = 3 and left_right = 4:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(4,4)
     elif up_down = 4 and left_right = 4:
-        pass
+        move = input('choose:')
+    if move == 'north':
+        up_down = up_down + 1
+    elif move == 'south':
+        up_down = up_down - 1
+    elif move == 'east':
+        left_right = left_right + 1
+    elif move == 'west':
+        left_right = left_right - 1
+    #(4,5)
     elif up_down = 5 and left_right = 4:
         pass
+    #(5,1)
     elif up_down = 1 and left_right = 5:
         pass
+    #(5,2)
     elif up_down = 2 and left_right = 5:
         pass
+    #(5,3)
     elif up_down = 3 and left_right = 5:
         pass
+    #(5,4)
     elif up_down = 4 and left_right = 5:
         pass
+    #(5,5)
     elif up_down = 5 and left_right = 5:
         pass
 
 def move():
-    move = input('north, east, south, west')
+    move = input('choose:')
     if move == 'north':
         up_down = up_down + 1
     elif move == 'south':
