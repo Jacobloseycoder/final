@@ -85,9 +85,9 @@ class item:
     def damige(self):
         pass
 
-class player_class:
-    def __init__(self, name):
-        self.__name = name
+class item_bar:
+    def __init__(self):
+        pass
 
 class map_locations:
     def __init__():
@@ -262,10 +262,28 @@ def map_gen():
         left_right = left_right - 1
     #(3,5)
     elif up_down = 5 and left_right = 3:
-        pass
+        print('west')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'west':
+            left_right = left_right - 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'south':
+            up_down = up_down - 1
     #(4,1)
     elif up_down = 1 and left_right = 4:
-        pass
+        print('west')
+        print('east')
+        print('north')
+        move = input('choose:')
+        if move == 'west':
+            left_right = left_right - 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'north':
+            up_down = up_down + 1
     #(4,2)
     elif up_down = 2 and left_right = 4:
         move = input('choose:')
@@ -301,10 +319,25 @@ def map_gen():
         left_right = left_right - 1
     #(4,5)
     elif up_down = 5 and left_right = 4:
-        pass
+        print('west')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'west':
+            left_right = left_right - 1
+        elif move == 'east':
+            left_right = left_right + 1
+        elif move == 'south':
+            up_down = up_down - 1
     #(5,1)
     elif up_down = 1 and left_right = 5:
-        pass
+        print('west')
+        print('north')
+        move = input('choose:')
+        if move == 'west':
+            left_right = left_right - 1
+        elif move == 'south':
+            up_down = up_down + 1
     #(5,2)
     elif up_down = 2 and left_right = 5:
         pass
