@@ -23,6 +23,7 @@ def rules():
     print('you have to kill the boss to win')
     print('if your hp goes to 0 you lose')
     print('but the most important thing is to have fun')
+    main()
   
 #classes: player, slime, goblon, item, and boss
 #add random chance to hit or damige amount
@@ -785,10 +786,10 @@ def map_gen(up_down, left_right, hero):
         print('you win')
 
 def item_bar(hero):
-    print(hero.get_health())
-    print(hero.get_weapion())
-    wep = hero.get_weapion()
-    print(wep.return_description())
+    print('HP:',hero.get_health())
+    print('wepion:',hero.get_weapion())
+    #wep = hero.get_weapion()
+    #print(wep.return_description())
 
 def play():
     name = input('enter the players name:')
