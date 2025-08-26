@@ -1,6 +1,6 @@
 import random
 import time
-#things to add
+#things to addd
 #-------------
 #1.reformat code to look beter(maybe use ai)
 #2.add cash
