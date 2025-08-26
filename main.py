@@ -1,8 +1,7 @@
 import random
 import time
-#things to addd
+#things to add
 #-------------
-#1.reformat code to look beter(maybe use ai)
 #2.add cash
 #3.add more spaces
 #4.add shop
@@ -52,6 +51,83 @@ def rules():
     print('but the most important thing is to have fun')
     time.sleep(3)
     main()
+    
+#lets someone check there states
+def item_bar(hero):
+    print('HP:',hero.get_health())
+    print('wepion:',hero.get_weapion())
+    print('wepion description:',hero.return_wepion_description())
+    time.sleep(3)
+    
+def play():
+    name = input('enter the players name:')
+    weapion = input('enter the players weapion')
+    wep_descrip = input('enter the weapions description')
+    hp = 50
+    #class selection
+    print('select your class')
+    print("1. runner: has a 50% chanes to run away from a fight (cant be used on boss's)")
+    print('2. fighter: all attacks have a 20% chance of doing double damige')
+    clas = input('select here:')
+    if clas == '1':
+        classs = 'runner'
+    elif clas == '2':
+        classs = 'fighter'
+    else:
+        print('not a option')
+        play()
+    #sets up the player and starts the game
+    hero = player(name, hp, weapion, classs, wep_descrip)
+    weapion = item(weapion, wep_descrip)
+    up_down = random.randint(1,5)
+    left_right = random.randint(1,5)
+    map_gen(up_down, left_right, hero)  
+    
+def battle(hero, monster):
+    print("A wild", monster.get_rece(), "named", monster.get_name(), "appears!")
+    while True:
+        print("Your HP:", hero.get_health())
+        time.sleep(1)
+        print(monster.get_name(),"'s HP:", monster.health_check())
+        time.sleep(1)
+        action = input("Attack or Run? ").lower()
+        #running action line
+        if action == "run":
+            if monster.get_rece() != 'abamanation':
+                if hero.get_class() == "runner":
+                    if random.random() < 0.5:
+                        print("You successfully ran away!")
+                        return False
+                    else:
+                        print("Failed to run away!")
+                        # Monster attack
+                        monster_damage = random.randint(1, monster.return_attack())
+                        hero.loss_health(monster_damage)
+                        print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
+                        if hero.get_health() <= 0:
+                            print("You were defeated!")
+                else:
+                    print("You can't run. You're not a runner.")
+            else:
+                print("you can't run during a boss fight.")
+        if action == "attack":
+            # Player attack
+            damage = random.randint(3, 6)
+            if hero.get_class() == "fighter":
+                muti = random.randint(1,5)
+                if muti == 1:
+                    damage = damage * 2
+            monster.health_loss(damage)
+            print("You hit the" ,monster.get_name() ,"for", damage, "damage!")
+            if monster.health_check() <= 0:
+                print("You defeated", monster.get_name(),"!")
+                return False
+            # Monster attack
+            monster_damage = random.randint(1, monster.return_attack())
+            hero.loss_health(monster_damage)
+            print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
+            if hero.get_health() <= 0:
+                print("You were defeated!")
 
 class player:
     #constructor for hero class
@@ -114,12 +190,15 @@ class slime:
 class coin:
     def __init__(self, amount):
         self.__amount = amount
-     #returns coin amount
+    #returns coin amount
     def return_amount(self):
         return self.__amount
     #subtract coin
     def coin_subtraction(self, sub):
         self.__amount = self.__amount - sub
+    #add coin
+    def coin_add(self, add):
+        self.__amount = self.__amount + add
 
 class goblion:
     def __init__(self, name, health, attack,):
@@ -927,79 +1006,7 @@ def map_gen(up_down, left_right, hero):
                 soved = True
                 print('you win')
 
-#lets someone check there states
-def item_bar(hero):
-    print('HP:',hero.get_health())
-    print('wepion:',hero.get_weapion())
-    print('wepion description:',hero.return_wepion_description())
-    time.sleep(3)
-
-def play():
-    name = input('enter the players name:')
-    weapion = input('enter the players weapion')
-    wep_descrip = input('enter the weapions description')
-    hp = 50
-    #class selection
-    print('select your class')
-    print("1. runner: has a 50/50 chanes to run away from a fight (cant be used on boss's)")
-    print('2. fighter: all attacks have a 20% chance of doing double damige')
-    clas = input('select here:')
-    if clas == '1':
-        classs = 'runner'
-    elif clas == '2':
-        classs = 'fighter'
-    else:
-        print('not a option')
-        play()
-    #sets up the player and starts the game
-    hero = player(name, hp, weapion, classs, wep_descrip)
-    weapion = item(weapion, wep_descrip)
-    up_down = random.randint(1,5)
-    left_right = random.randint(1,5)
-    map_gen(up_down, left_right, hero)
-    
-def battle(hero, monster):
-    print("A wild", monster.get_rece(), "named", monster.get_name(), "appears!")
-    while True:
-        print("Your HP:", hero.get_health())
-        time.sleep(1)
-        print(monster.get_name(),"'s HP:", monster.health_check())
-        action = input("Attack or Run? ").lower()
-        #running action line
-        if action == "run":
-            if monster.get_rece() != 'abamanation':
-                if hero.get_class() == "runner":
-                    if random.random() < 0.5:
-                        print("You successfully ran away!")
-                        return False
-                    else:
-                        print("Failed to run away!")
-                        # Monster attack
-                        monster_damage = random.randint(1, monster.return_attack())
-                        hero.loss_health(monster_damage)
-                        print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
-                        if hero.get_health() <= 0:
-                            print("You were defeated!")
-                else:
-                    print("You can't run. You're not a runner.")
-        if action == "attack":
-            # Player attack
-            damage = random.randint(3, 6)
-            if hero.get_class() == "fighter":
-                muti = random.randint(1,5)
-                if muti == 1:
-                    damage = damage * 2
-            monster.health_loss(damage)
-            print("You hit the" ,monster.get_name() ,"for", damage, "damage!")
-            if monster.health_check() <= 0:
-                print("You defeated", monster.get_name(),"!")
-                return False
-            # Monster attack
-            monster_damage = random.randint(1, monster.return_attack())
-            hero.loss_health(monster_damage)
-            print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
-            if hero.get_health() <= 0:
-                print("You were defeated!")
+ 
                 
 #chat is this rizz
 #can I get 5 big booms:boom,Boom,BOom,BOOm,BOOM
