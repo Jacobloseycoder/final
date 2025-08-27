@@ -53,10 +53,11 @@ def rules():
     main()
     
 #lets someone check there states
-def item_bar(hero):
+def item_bar(hero, cash):
     print('HP:',hero.get_health())
     print('wepion:',hero.get_weapion())
     print('wepion description:',hero.return_wepion_description())
+    print('coins:',cash.return_amount())
     time.sleep(3)
     
 def play():
@@ -78,12 +79,13 @@ def play():
         play()
     #sets up the player and starts the game
     hero = player(name, hp, weapion, classs, wep_descrip)
+    cash = coin(10)
     weapion = item(weapion, wep_descrip)
     up_down = random.randint(1,5)
     left_right = random.randint(1,5)
-    map_gen(up_down, left_right, hero)  
+    map_gen(up_down, left_right, hero, cash)  
     
-def battle(hero, monster):
+def battle(hero, monster, cash):
     print("A wild", monster.get_rece(), "named", monster.get_name(), "appears!")
     while True:
         print("Your HP:", hero.get_health())
@@ -121,6 +123,7 @@ def battle(hero, monster):
             print("You hit the" ,monster.get_name() ,"for", damage, "damage!")
             if monster.health_check() <= 0:
                 print("You defeated", monster.get_name(),"!")
+                cash.coin_add(5)
                 return False
             # Monster attack
             monster_damage = random.randint(1, monster.return_attack())
@@ -258,7 +261,7 @@ class boss:
 #1 |__|__|__|__|__|
 #    1  2  3  4  5
 
-def map_gen(up_down, left_right, hero):
+def map_gen(up_down, left_right, hero, cash):
     #(1,1)
     if up_down == 1 and left_right == 1:
         #invintory check
@@ -348,7 +351,7 @@ def map_gen(up_down, left_right, hero):
         #monster + fight setup
         jimmy = slime('jimmy', 10, 2)
         while fighting == True:
-            fighting = battle(hero, jimmy)
+            fighting = battle(hero, jimmy, cash)
         #path selection
         print('you see 3 ways to go')
         print('north')
@@ -460,7 +463,7 @@ def map_gen(up_down, left_right, hero):
         #monster + fight setup
         tim = slime('tim', 10, 2)
         while fighting == True:
-            fighting = battle(hero, tim)
+            fighting = battle(hero, tim, cash)
         #path selection
         print('you see 4 doors to enter')
         print('west')
@@ -579,7 +582,7 @@ def map_gen(up_down, left_right, hero):
         #monster + fight setup
         phil = goblion('phil', 10, 2)
         while fighting == True:
-            fighting = battle(hero, phil)
+            fighting = battle(hero, phil, cash)
         #path selection
         print('you see 4 ways to go')
         print('west')
@@ -733,7 +736,7 @@ def map_gen(up_down, left_right, hero):
         #monster + fight setup
         hugo = slime('hugo', 10, 2)
         while fighting == True:
-            fighting = battle(hero, hugo)
+            fighting = battle(hero, hugo, cash)
         #path selection
         print('you see 4 ways to go')
         print('west')
@@ -801,7 +804,7 @@ def map_gen(up_down, left_right, hero):
         #monster + fight setup
         abaddon = boss('abaddon', 20, 3)
         while fighting == True:
-            fighting = battle(hero, abaddon)
+            fighting = battle(hero, abaddon, cash)
         #path selection
         print('you see 4 ways to go')
         print('west')
@@ -918,7 +921,7 @@ def map_gen(up_down, left_right, hero):
         #monster + fight setup
         haze = slime('haze', 10, 2)
         while fighting == True:
-            fighting = battle(hero, haze)
+            fighting = battle(hero, haze, cash)
         #path selection
         print('you see 3 ways to go')
         print('west')
