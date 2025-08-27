@@ -123,7 +123,15 @@ def battle(hero, monster, cash):
             print("You hit the" ,monster.get_name() ,"for", damage, "damage!")
             if monster.health_check() <= 0:
                 print("You defeated", monster.get_name(),"!")
-                cash.coin_add(5)
+                if monster.get_rece() == 'slime':
+                    cash.coin_add(5)
+                    print('you gained 5 coins')
+                elif monster.get_rece() == 'goblion':
+                    cash.coin_add(5)
+                    print('you gained 5 coins')
+                elif monster.get_rece() == 'abamanation':
+                    cash.coin_add(30)
+                    print('you gained 30 coins')
                 return False
             # Monster attack
             monster_damage = random.randint(1, monster.return_attack())
