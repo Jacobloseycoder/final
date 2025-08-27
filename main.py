@@ -270,6 +270,7 @@ class boss:
 #    1  2  3  4  5
 
 def map_gen(up_down, left_right, hero, cash):
+    #(X,Y)
     #(1,1)
     if up_down == 1 and left_right == 1:
         #invintory check
