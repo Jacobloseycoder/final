@@ -44,7 +44,7 @@ def rules():
     time.sleep(2)
     print('you can only go north,south,east, or west wen propted')
     time.sleep(2)
-    print('you have to kill the boss to win')
+    print('you have to kill the boss to whe3n')
     time.sleep(2)
     print('if your hp goes to 0 you lose')
     time.sleep(2)
