@@ -42,7 +42,7 @@ def rules():
     time.sleep(2)
     print('you will be randomly placed in a maze and you have to escape')
     time.sleep(2)
-    print('you can only go north,south,east, or west wen propted')
+    print('you can only go north,south,east, or west when propted')
     time.sleep(2)
     print('you have to kill the boss to whe3n')
     time.sleep(2)
