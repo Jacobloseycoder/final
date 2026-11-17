@@ -80,7 +80,6 @@ def play():
     #sets up the player and starts the game
     hero = player(name, hp, weapion, classs, wep_descrip)
     cash = coin(10)
-    weapion = item(weapion, wep_descrip)
     up_down = random.randint(1,5)
     left_right = random.randint(1,5)
     map_gen(up_down, left_right, hero, cash)  
