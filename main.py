@@ -77,8 +77,10 @@ def play():
         play()
     if wep == '1':
         wep_descrip = 'long oak blade paired with a strong oak shield'
+        start_boost_hp = 10
     elif wep == '2':
         wep_descrip = 'a long wooden staff with a rounded blunt tip'
+        run_boost = .2
     elif wep == '3':
         wep_descrip = 'a stick but bigger'
     hp = 50 + start_boost_hp
@@ -112,30 +114,53 @@ def battle(hero, monster, cash):
         #running action line
         if action == "run":
             if monster.get_rece() != 'abamanation':
-                if hero.get_class() == "runner":
-                    if random.random() < 0.5:
-                        print("You successfully ran away!")
-                        return False
+                if hero.get_weapion() != 'blunt spear'
+                    if hero.get_class() == "runner":
+                        if random.random() < 0.5:
+                            print("You successfully ran away!")
+                            return False
+                        else:
+                            print("Failed to run away!")
+                            # Monster attack
+                            monster_damage = random.randint(1, monster.return_attack())
+                            hero.loss_health(monster_damage)
+                            print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
+                            if hero.get_health() <= 0:
+                                print("You were defeated!")
                     else:
-                        print("Failed to run away!")
-                        # Monster attack
-                        monster_damage = random.randint(1, monster.return_attack())
-                        hero.loss_health(monster_damage)
-                        print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
-                        if hero.get_health() <= 0:
-                            print("You were defeated!")
+                        print("You can't run. You're not a runner.")
                 else:
-                    print("You can't run. You're not a runner.")
+                    if hero.get_class() == "runner":
+                        if random.random() < 0.7:
+                            print("You successfully ran away!")
+                            return False
+                        else:
+                            print("Failed to run away!")
+                            # Monster attack
+                            monster_damage = random.randint(1, monster.return_attack())
+                            hero.loss_health(monster_damage)
+                            print("The", monster.get_name(), "hits you for", monster_damage, "damage!")
+                            if hero.get_health() <= 0:
+                                print("You were defeated!")
+                    else:
+                        print("You can't run. You're not a runner.")
             else:
                 print("you can't run during a boss fight.")
         if action == "attack" or "a":
             # Player attack
             damage = random.randint(3, 6)
-            if hero.get_class() == "fighter":
-                muti = random.randint(1,5)
-                if muti == 1:
-                    damage = damage * 2
-            monster.health_loss(damage)
+            if hero.get_wepion = 'wood sword and shield':
+                wepion_damage = 5
+            elif hero.get_wepion = 'blunt spear':
+                wepion_damage = 6
+            elif hero.get_wepion = 'club':
+                wepion_damage = 10
+            damage = damage + wepion_damage
+                if hero.get_class() == "fighter":
+                    muti = random.randint(1,5)
+                    if muti == 1:
+                        damage = damage * 2
+                monster.health_loss(damage)
             print("You hit the" ,monster.get_name() ,"for", damage, "damage!")
             if monster.health_check() <= 0:
                 print("You defeated", monster.get_name(),"!")
