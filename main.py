@@ -2,7 +2,7 @@ import random
 import time
 #things to add
 #-------------
-#2.add cash
+#2.5.make set wepions on lines 63-101
 #3.add more spaces
 #4.add shop
 #5.add casino
@@ -62,9 +62,26 @@ def item_bar(hero, cash):
     
 def play():
     name = input('enter the players name:')
-    weapion = input('enter the players weapion')
-    wep_descrip = input('enter the weapions description')
-    hp = 50
+    print('1.wood sword and shield +5 attack +10 HP')
+    print('2.blunt spear +6 attack and 20% to let you run from fight')
+    print('3.club +10 attack')
+    wep = input('enter the players weapion')
+    if wep == '1':
+        wepion = 'wood sword and shield'
+    elif wep == '2':
+        wepion = 'blunt spear'
+    elif wep == '3':
+        wepion = 'club'
+    else:
+        print('not a option')
+        play()
+    if wep == '1':
+        wep_descrip = 'long oak blade paired with a strong oak shield'
+    elif wep == '2':
+        wep_descrip = 'a long wooden staff with a rounded blunt tip'
+    elif wep == '3':
+        wep_descrip = 'a stick but bigger'
+    hp = 50 + start_boost_hp
     #class selection
     print('select your class')
     print("1. runner: has a 50% chanes to run away from a fight (cant be used on boss's)")
