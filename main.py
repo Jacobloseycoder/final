@@ -2,8 +2,7 @@ import random
 import time
 #things to add
 #-------------
-#2.5.make set wepions on lines 63-101
-#3.add more spaces
+#3.add more spaces 1,6-5,6 are added but need some things need to add the other new ones added a top row and two side ones
 #4.add shop
 #5.add casino
 #6.rebalance classes
@@ -80,7 +79,6 @@ def play():
         start_boost_hp = 10
     elif wep == '2':
         wep_descrip = 'a long wooden staff with a rounded blunt tip'
-        run_boost = .2
     elif wep == '3':
         wep_descrip = 'a stick but bigger'
     hp = 50 + start_boost_hp
@@ -166,13 +164,13 @@ def battle(hero, monster, cash):
                 print("You defeated", monster.get_name(),"!")
                 if monster.get_rece() == 'slime':
                     cash.coin_add(5)
-                    print('you gained 5 coins')
+                    print('you gained 5 coins covered in slime')
                 elif monster.get_rece() == 'goblion':
                     cash.coin_add(5)
-                    print('you gained 5 coins')
+                    print('you gained 5 coins... I would be careful touching them who knows were they have been')
                 elif monster.get_rece() == 'abamanation':
                     cash.coin_add(30)
-                    print('you gained 30 coins')
+                    print('you gained 30 bloody coins')
                 return False
             # Monster attack
             monster_damage = random.randint(1, monster.return_attack())
@@ -301,14 +299,15 @@ class boss:
         return 'abamanation'
     
 #    MAP LAYOUT
-#         __ 
-#6  __ __|__|__ __
-#5 |__|__|__|__|__|
-#4 |__|__|__|__|__|
-#3 |__|__|__|__|__|
-#2 |__|__|__|__|__|
-#1 |__|__|__|__|__|
-#    1  2  3  4  5
+#   __ __ __ __ __ __ __
+#7 |__|__|__|__|__|__|__|
+#6 |__|__|__|__|__|__|__|
+#5 |__|__|__|__|__|__|__|
+#4 |__|__|__|__|__|__|__|
+#3 |__|__|__|__|__|__|__|
+#2 |__|__|__|__|__|__|__|
+#1 |__|__|__|__|__|__|__|
+#    1  2  3  4  5 6  7
 
 def map_gen(up_down, left_right, hero, cash):
     #(X,Y)
@@ -1038,6 +1037,52 @@ def map_gen(up_down, left_right, hero, cash):
             map_gen(up_down, left_right, hero)
         else:
             map_gen(up_down, left_right, hero)
+    #(1,6)
+    elif up_down == 6 and left_right == 3:
+        #invintory check
+        use = input('do you want to check your inventory y/n')
+        if use == 'y':
+            item_bar(hero, cash)
+        #room description
+        
+        #path selection
+        print('you see 2 ways to go')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'south':
+            up_down = up_down - 1
+            map_gen(up_down, left_right, hero)
+        elif move == 'east':
+            left_right = left_right + 1
+            map_gen(up_down, left_right, hero)
+        else:
+            map_gen(up_down, left_right, hero)
+    #(2,6)
+    elif up_down == 6 and left_right == 3:
+        #invintory check
+        use = input('do you want to check your inventory y/n')
+        if use == 'y':
+            item_bar(hero, cash)
+        #room description
+        
+        #path selection
+        print('you see 3 ways to go')
+        print('west')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'east':
+            left_right = left_right + 1
+            map_gen(up_down, left_right, hero)
+        elif move == 'south':
+            up_down = up_down - 1
+            map_gen(up_down, left_right, hero)
+        elif move == 'west':
+            left_right = left_right - 1
+            map_gen(up_down, left_right, hero)
+        else:
+            map_gen(up_down, left_right, hero)
     #(3,6)
     #boss
     elif up_down == 6 and left_right == 3:
@@ -1058,8 +1103,60 @@ def map_gen(up_down, left_right, hero, cash):
             if ansore == 'it had too many problems':
                 soved = True
                 print('you win')
-
- 
+    #(4,6)
+    elif up_down == 6 and left_right == 3:
+        #invintory check
+        use = input('do you want to check your inventory y/n')
+        if use == 'y':
+            item_bar(hero, cash)
+        
+        #room description
+        
+        #monster + fight setup
+        
+        #path selection
+        print('you see 3 ways to go')
+        print('west')
+        print('east')
+        print('south')
+        move = input('choose:')
+        if move == 'east':
+            left_right = left_right + 1
+            map_gen(up_down, left_right, hero)
+        elif move == 'south':
+            up_down = up_down - 1
+            map_gen(up_down, left_right, hero)
+        elif move == 'west':
+            left_right = left_right - 1
+            map_gen(up_down, left_right, hero)
+        else:
+            map_gen(up_down, left_right, hero)
+    #(5,6)
+    elif up_down == 6 and left_right == 3:
+        #invintory check
+        use = input('do you want to check your inventory y/n')
+        if use == 'y':
+            item_bar(hero, cash)
+        fighting = True
+        #room description
+        
+        #monster + fight setup
+        haze = slime('carter', 10, 2)
+        while fighting == True:
+            fighting = battle(hero, carter, cash)
+        #path selection
+        print('you see 3 ways to go')
+        print('west')
+        print('south')
+        move = input('choose:')
+        elif move == 'south':
+            up_down = up_down - 1
+            map_gen(up_down, left_right, hero)
+        elif move == 'west':
+            left_right = left_right - 1
+            map_gen(up_down, left_right, hero)
+        else:
+            map_gen(up_down, left_right, hero)
                 
 #chat is this rizz
 #can I get 5 big booms:boom,Boom,BOom,BOOm,BOOM
